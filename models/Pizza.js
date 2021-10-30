@@ -1,4 +1,3 @@
-const { ObjectId } = require('bson');
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -22,7 +21,7 @@ const PizzaSchema = new Schema({
     toppings: [],
     comments: [
         {
-            type: ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Comment'
         }
     ]
