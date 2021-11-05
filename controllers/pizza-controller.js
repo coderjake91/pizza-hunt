@@ -46,7 +46,7 @@ const pizzaController = {
     //update a pizza by id
     updatePizza({ params, body }, res) {
         //{new: true} destructured parameter tells mongoose to return the updated document
-        Pizza.findOneAndUpdate({_id: params.id }, body, ({ new: true }))
+        Pizza.findOneAndUpdate({_id: params.id }, body, ({ new: true, runValidators: true }))
             .then(dbPizzaData => {
                 if(!dbPizzaData){
                     res.status(404).json({ message: 'no pizza found with this id!' });
